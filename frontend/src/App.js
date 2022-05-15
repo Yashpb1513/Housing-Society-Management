@@ -1,13 +1,14 @@
-import {Route, Routes} from 'react-router-dom'
-import Home from './components/Home';
+import LandingPage from "./components/LandingPage";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./LoginForm.css";
+import React, { Component } from "react";
+import Announcement from "./components/Announcement";
 function App() {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Home />}/>
-      </Routes>
-    </>
+    <div>
+      <LandingPage />
+      <Announcement />
+    </div>
   );
 }
-
 export default App;
