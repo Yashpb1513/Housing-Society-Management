@@ -1,7 +1,6 @@
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import React, { Component } from "react";
 import logo from "./icons8-marker-storm-32.png";
-const google = window.google;
 
 const containerStyle = {
   position: "relative",
