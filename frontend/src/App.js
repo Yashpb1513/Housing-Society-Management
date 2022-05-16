@@ -4,6 +4,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import ReachUs from "./components/ReachUs";
+import Announcement from "./components/Announcement";
 function App() {
   return (
     <div>
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/reachus" element={<ReachUs />} />
         <Route path="/" element={<LandingPage/>}/>
+        <Route path="/announcement" element={<Announcement/>}/>
       </Routes>
       
     </div>
