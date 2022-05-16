@@ -10,11 +10,10 @@ function App() {
     <div>
       <NavBar />
       <Routes>
-        <Route path="/reachus" element={<ReachUs />} />
-        <Route path="/" element={<LandingPage/>}/>
-        <Route path="/announcement" element={<Announcement/>}/>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/Announcement" element={<Announcement />} />
+        <Route path="/ReachUs" element={<ReachUs />} />
       </Routes>
-      
     </div>
   );
 }
