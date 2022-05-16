@@ -11,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/reachus" element={<ReachUs />} />
         <Route path="/" element={<LandingPage/>}/>
+        {/* <Route path */}
       </Routes>
       
     </div>
