@@ -54,7 +54,6 @@ export class ReachUs extends Component {
           name={"Current location"}
           icon={{
             url: logo,
-              // anchor: new this.props.google.maps.Point(19,46),
             scaledSize: new this.props.google.maps.Size(40, 40),
           }}
         />
