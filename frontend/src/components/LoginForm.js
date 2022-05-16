@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Modal, Button } from "react-bootstrap";
-import "./LoginForm.css";
+import "..css/LoginForm";
 function LoginForm() {
   const [show, setShow] = useState(false);
 
