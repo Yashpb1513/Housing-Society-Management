@@ -1,18 +1,22 @@
 import React from "react";
+import img1 from "../images/electrical.jpg";
+
 import { Card, Button } from "react-bootstrap";
 function Announcement() {
   return (
     <div>
       Announcement
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
+      <Card style={{ width: "18rem" , padding: "1rem"}}>
+        <Card.Img variant="top" src={img1}></Card.Img>
+        <Card.Body style={{ textAlign:"center", backgroundColor:"lightpink"}}>
+          <Card.Title style={{ textDecoration:"underline"}}>ELECTRICAL MAINTENANCE</Card.Title>
           <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            TIME :  9 am to 10 am 
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Card.Text>
+            DATE :  16-05-2022  
+          </Card.Text>
+          <Button variant="primary">More Imformation</Button>
         </Card.Body>
       </Card>
     </div>
@@ -20,3 +24,7 @@ function Announcement() {
 }
 
 export default Announcement;
+
+
+
+
