@@ -52,14 +52,14 @@ export class ReachUs extends Component {
         <Marker
           onClick={this.onMarkerClick}
           name={"Current location"}
-          icon={{
+          // icon={{
           //   //select a icon
             // url: "https://www.freeiconspng.com/uploads/apartment-icon-17.png",
           //   // url: "https://icons-for-free.com/download-icon-svg+google+map+location+map+navigation+position+icon-1320184909660899554_256.png",
           //   // url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/627px-Google_Maps_icon_%282020%29.svg.png?20200218211225",
           //   anchor: new google.maps.Point(17, 46),
             // scaledSize: new google.maps.Size(40, 40),
-          }}
+          // }}
         />
 
         <InfoWindow
