@@ -1,19 +1,20 @@
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import React, { Component } from "react";
-const google = window.google;
 import logo from "./icons8-marker-storm-32.png";
+
+const google = window.google;
 const containerStyle = {
   position: "relative",
   width: "90%",
   height: "400px",
   margin: "0px auto",
 };
- var iconPin = {
-   path: "./icons8-marker-storm-32.png",
-   fillColor: "#64be67",
-   fillOpacity: 1,
-   scale: 0.05, //to reduce the size of icons
- };
+var iconPin = {
+  path: "./icons8-marker-storm-32.png",
+  fillColor: "#64be67",
+  fillOpacity: 1,
+  scale: 0.05, //to reduce the size of icons
+};
 export class ReachUs extends Component {
   state = {
     activeMarker: {},
@@ -57,16 +58,14 @@ export class ReachUs extends Component {
         <Marker
           onClick={this.onMarkerClick}
           name={"Current location"}
-          icon={{ 
-            url:logo,
-            fillColor: "#64be67",
-            scale: 2,
-          //   //slect a icon
+          icon={{
+            url: logo,
+            //slect a icon
             // url: "https://www.freeiconspng.com/uploads/apartment-icon-17.png",
-          //   // url: "https://icons-for-free.com/download-icon-svg+google+map+location+map+navigation+position+icon-1320184909660899554_256.png",
-          //   // url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/627px-Google_Maps_icon_%282020%29.svg.png?20200218211225",
-          //   anchor: new google.maps.Point(17, 46),
-            // scaledSize: new this.props.google.maps.Size(40, 40),
+            // url: "https://icons-for-free.com/download-icon-svg+google+map+location+map+navigation+position+icon-1320184909660899554_256.png",
+            // url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/627px-Google_Maps_icon_%282020%29.svg.png?20200218211225",
+            //   anchor: new google.maps.Point(17, 46),
+            scaledSize: new this.props.google.maps.Size(40, 40),
           }}
         />
 
