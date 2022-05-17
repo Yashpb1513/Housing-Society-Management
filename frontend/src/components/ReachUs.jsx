@@ -4,9 +4,8 @@ import logo from "../images/icons8-marker-storm-32.png";
 
 const containerStyle = {
   position: "relative",
-  width: "90%",
+  width: "100%",
   height: "400px",
-  margin: "0px auto",
 };
 export class ReachUs extends Component {
   state = {

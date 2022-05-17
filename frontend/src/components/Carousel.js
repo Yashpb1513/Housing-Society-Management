@@ -6,7 +6,7 @@ import img2 from "../images/buildingfn.jpg";
 import img3 from "../images/kidsplayarea.jpg";
 import img4 from "../images/societyoffice.jpg";
 import img5 from "../images/terrace.jpg";
-import "../css/Tp.css";
+import "../css/Carousel.css";
 
 export default function CarouselImages() {
   return (
