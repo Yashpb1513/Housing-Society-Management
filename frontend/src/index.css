@@ -11,10 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.imgcarousel {
-  height: "47rem";
+Carousel.Item  img {
+  height: "12rem";
   /* media queries */
   @media only screen(max-width: 900px) {
     height: "15rem";
   }
-}
+ }
+/* .imgcarousel {
+  height: "12rem"; */
+  /* media queries */
+  /* @media only screen(max-width: 900px) {
+    height: "15rem";
+  } */
+/* } */
