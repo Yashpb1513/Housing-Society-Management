@@ -5,7 +5,6 @@ import  Carousel  from "./Carousel";
 function LandingPage() {
   return (
     <div>
-      <Announcement />
       <Carousel />
     </div>
   );
