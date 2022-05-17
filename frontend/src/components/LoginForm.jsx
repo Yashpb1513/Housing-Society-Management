@@ -8,7 +8,7 @@ function LoginForm() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow} ml-auto>
+      <Button variant="primary" onClick={handleShow} ms-auto>
         Login
       </Button>
 
@@ -26,7 +26,7 @@ function LoginForm() {
                 <form action="#">
                   <div className="row">
                     <i className="fas fa-user"></i>
-                    <input type="text" placeholder="Email or Phone" required />
+                    <input type="text" placeholder="User Name" required />
                   </div>
                   <div className="row">
                     <i className="fas fa-lock"></i>
@@ -37,9 +37,6 @@ function LoginForm() {
                   </div>
                   <div className="row button">
                     <input type="submit" value="Login" />
-                  </div>
-                  <div className="signup-link">
-                    Not a member? <a href="#">Signup now</a>
                   </div>
                 </form>
               </div>

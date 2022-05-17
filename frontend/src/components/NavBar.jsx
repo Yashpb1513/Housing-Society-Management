@@ -1,11 +1,11 @@
 import React from "react";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
 import LoginForm from "./LoginForm";
 function NavBar() {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark" style={{ position: "sticky" }} variant="dark" fixed="top">
       <Container>
         <Navbar.Brand href="#home">
           <a href="/"> ABC</a>
