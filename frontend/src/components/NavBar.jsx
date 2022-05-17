@@ -1,7 +1,8 @@
 import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
+
 import LoginForm from "./LoginForm";
-import Announcement from './Announcement'
 function NavBar() {
   return (
     <Navbar bg="light" expand="lg">
@@ -12,12 +13,18 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/Announcemnet">Announcement</Nav.Link>
-            <Nav.Link href="/ReachUs">Reach Us</Nav.Link>
+            <LinkContainer to="/">
+              <Nav.Link>Home</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/Announcement">
+              <Nav.Link>Announcement</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/ReachUs">
+              <Nav.Link>ReachUs</Nav.Link>
+            </LinkContainer>
           </Nav>
           <Nav className="ms-auto">
-            <LoginForm/>
+            <LoginForm />
             <NavDropdown title="Username" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Settings</NavDropdown.Item>
