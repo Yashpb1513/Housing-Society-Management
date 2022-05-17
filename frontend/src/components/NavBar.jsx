@@ -24,7 +24,9 @@ function NavBar() {
             </LinkContainer>
           </Nav>
           <Nav className="ms-auto">
-            <LoginForm />
+            <Nav.Link>
+              <LoginForm />
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
