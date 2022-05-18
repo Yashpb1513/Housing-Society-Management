@@ -6,14 +6,14 @@ import NavBar from "./components/NavBar";
 import ReachUs from "./components/ReachUs";
 import Dashboard from "./components/Dashboard";
 import Protected from "./components/Protected";
-import Cards from "./components/Cards";
+import Announcement from "./components/Announcement";
 function App() {
   return (
     <div>
       <NavBar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/Announcement" element={<Cards />} />
+        <Route path="/Announcement" element={<Announcement />} />
         <Route path="/ReachUs" element={<ReachUs />} />
         <Route
           path="/dashboard"

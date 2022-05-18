@@ -1,6 +1,6 @@
 .adjust {
   width: 100%;
-  height: 47rem;
+  height: 42.5rem;
 }
 
 .cap {
@@ -20,4 +20,10 @@
     width: 100% !important;
     height: 15rem;
   }
+}
+.anchoradjust a:hover {
+  color: rgba(58, 176, 215, 0.945);
+}
+.anchoradjust a{
+  color: white;
 }
