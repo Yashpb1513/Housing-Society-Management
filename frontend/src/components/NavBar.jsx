@@ -5,12 +5,12 @@ import { LinkContainer } from "react-router-bootstrap";
 import LoginForm from "./LoginForm";
 function NavBar() {
   return (
-    <header>
       <Navbar
         bg="dark"
         style={{ position: "sticky" }}
         variant="dark"
         fixed="top"
+        expand="lg"
       >
         <Container>
           <Navbar.Brand href="#home">
@@ -37,7 +37,6 @@ function NavBar() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </header>
   );
 }
 
