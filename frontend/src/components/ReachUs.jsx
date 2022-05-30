@@ -7,6 +7,7 @@ import { IoIosMail } from "react-icons/io";
 import "../css/Carousel.css";
 import { Grid } from "@mui/material";
 import { Button } from "@mui/material";
+import axios from "axios";
 const containerStyle = {
   position: "relative",
   width: "100%",
@@ -17,6 +18,32 @@ const mystyle = {
   a: {
     color: "white",
   },
+};
+const handleQuery = () => {
+  let email = document.getElementById("email").value;
+  let val = document.getElementById("form10").value;
+  console.log(val);
+  console.log(email);
+  // let data = {
+  //   "email": email,
+  //   "query": val,
+  // };
+  // data = JSON.stringify(data);
+  // console.log(data);
+  // const headers = {'content-Type': 'application/json'}
+    async function postQuery(){
+      try{
+             await axios.post('http://127.0.0.1:8000/query/', {email: email, query: val}).then((res) => {
+            console.log(res.data);
+            alert("Your query has been submitted");
+          });
+       }catch(error){
+         console.log(error)
+      }
+     }
+     postQuery()
+  document.getElementById("form10").value = "";
+  document.getElementById("email").value = "";
 };
 export class ReachUs extends Component {
   state = {
@@ -143,6 +170,7 @@ export class ReachUs extends Component {
               </Grid>
               <Grid item style={{ height: "auto", padding: "0px" }}>
                 <div class="md-form" style={{ backgroundColor: "transparent", textAlign: "center" }}>
+                  Email: <input type="email" id="email" class="form-control" style={{ borderRadius: "20px", width: "100%" }} />
                   <i class="fas fa-pencil-alt prefix"></i>
                   <textarea
                     id="form10"
@@ -150,7 +178,7 @@ export class ReachUs extends Component {
                     rows="2"
                   ></textarea>
                   {/* <br /> */}
-                  <Button type="submit" sx={{color: "black"}}>Submit</Button>
+                  <Button type="submit" sx={{color: "black"}} onClick={handleQuery}>Submit</Button>
                 </div>
               </Grid>
               {/* <Grid item>
