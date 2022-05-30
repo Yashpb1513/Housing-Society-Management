@@ -6,7 +6,7 @@ import NavBar from "./components/NavBar";
 import ReachUs from "./components/ReachUs";
 import Dashboard from "./components/Dashboard";
 import Announcement from "./components/Announcement";
-import {UserContext} from "./context/UserContext";
+import { UserContext } from "./context/UserContext";
 import { useContext, useEffect } from "react";
 import LoggedNavBar from "./components/LoggedNavBar";
 import Profile from "./components/Profile";
@@ -17,22 +17,17 @@ function App() {
   useEffect(() => {
     setStatus(getUserStatus());
     setName(getUserName());
-  },[]);
+  }, []);
   console.log(getUserStatus());
   return (
     <div>
-      {status ? <LoggedNavBar name={name}/> : <NavBar />}
+      {status ? <LoggedNavBar name={name} /> : <NavBar />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/Announcement" element={<Announcement />} />
         <Route path="/ReachUs" element={<ReachUs />} />
-        <Route path="/Profile" element={<Profile/>}/>
-        <Route
-          path="/dashboard"
-          element={
-              <Dashboard />
-          }
-        />
+        <Route path="/Profile" element={<Profile />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   );
