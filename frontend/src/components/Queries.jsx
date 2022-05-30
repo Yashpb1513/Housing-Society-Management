@@ -33,8 +33,8 @@ function Queries() {
       >
         {queries.map((query) => {
           return (
-            <Grid item key={query.id} >
-               <Pulse>
+            <Grid item key={query.id}>
+              <Pulse>
                 <Querycard
                   key={query.id}
                   heading={"Query"}
