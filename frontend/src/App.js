@@ -15,14 +15,10 @@ function App() {
   const { getUserStatus, getUserName } = useContext(UserContext);
   const [status, setStatus] = React.useState(false);
   const [name, setName] = React.useState(false);
-  useEffect(() => {
-    setStatus(getUserStatus());
-    setName(getUserName());
-  },[]);
   console.log(getUserStatus());
   return (
     <div>
-      {status ? <LoggedNavBar name={name}/> : <NavBar />}
+      {status ? <LoggedNavBar name={getUserName}/> : <NavBar />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/Announcement" element={<Announcement />} />

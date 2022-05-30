@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AppBar, Grid, Typography, Toolbar, Button, MenuItem, Avatar, Menu } from '@mui/material';
 import { UserContext } from '../context/UserContext';
-function LoggedNavBar({name}) {
+function LoggedNavBar() {
   const { logout, getUserStatus } = React.useContext(UserContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -12,6 +12,7 @@ function LoggedNavBar({name}) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  let name = localStorage.getItem('user');
   const navigate = useNavigate();
   return (
     <AppBar
@@ -41,7 +42,7 @@ function LoggedNavBar({name}) {
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
                 onClick={handleClick}
-                sx={{ backgroundColor: "transparent", color: "white" }}
+                sx={{ backgroundColor: "transparent", color: "black" }}
               >
                 <Avatar>{name}</Avatar>
               </Button>

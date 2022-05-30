@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Grid } from "@mui/material";
+import Querycard from "./Querycard";
+import Pulse from "react-reveal/Pulse";
 function Queries() {
   const [queries, setqueries] = useState([]);
   useEffect(() => {
@@ -31,9 +33,15 @@ function Queries() {
       >
         {queries.map((query) => {
           return (
-            <Grid item key={query.id} lg={4} md={6} sm={12}>
-              Query: {query.query}<br />
-              Contact: {query.email}
+            <Grid item key={query.id} >
+               <Pulse>
+                <Querycard
+                  key={query.id}
+                  heading={"Query"}
+                  message={query.query}
+                  email={query.email}
+                />
+              </Pulse>
             </Grid>
           );
         })}

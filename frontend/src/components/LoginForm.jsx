@@ -27,13 +27,15 @@ const gotodashboard = () => {
               handleClose();
               setTypes(res.data.type, res.data.subtype);
               manageUser(true, name);
+              localStorage.setItem("user", name);
               gotodashboard();
             }
           });
        }catch(error){
          alert("Invalid Credentials");
          manageToken(token);
-         manageUser(false);
+         localStorage.removeItem("user");
+         manageUser(false, '');
       }
      }
      userRequest()

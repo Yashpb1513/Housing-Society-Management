@@ -51,6 +51,7 @@ const getTypes = () => {
     setUser(false);
     setToken('');
     setUsername('');
+    localStorage.removeItem("user");
   };
   const getUserStatus = () => {
     return user;
