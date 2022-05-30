@@ -8,14 +8,15 @@ from django.views.decorators.csrf import csrf_exempt
 from django.dispatch import receiver
 from matplotlib.font_manager import json_load
 from rest_framework.authtoken.models import Token
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.response import Response
 from django.contrib.auth.models import User
-from .models import Usr, Announcements, Queries
-from .serializers import UserSerializer, AnnouncementSerializer, QueriesSerializer
+from .models import Usr, Announcements, Queries, Complaints, Maintenance
+from .serializers import UserSerializer, AnnouncementSerializer, QueriesSerializer, ComplaintsSerializer, MaintenanceSerializer
 from rest_framework.status import *
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly                                   
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly 
+                                 
 # Create your views here.
 @api_view(['GET', 'POST'])
 def createUser(request):
@@ -115,3 +116,60 @@ def getToken(request):
     #     return Response({'token': token.key, 'status': '200'}, status=HTTP_400_BAD_REQUEST)
     # else:
     # return Response({'message': 'Invalid Credentials', 'status': '404'})
+
+@api_view(['GET', 'POST'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def Complaint(request):
+  # authentication_classes = (TokenAuthentication,)
+  # permission_classes = (IsAuthenticated,)
+  if request.method == 'GET':
+    complaints = Complaints.objects.all()
+    serializer = ComplaintsSerializer(complaints, many=True)
+    return Response(serializer.data)
+  if request.method == 'POST':
+    json_data = request.body;
+    stream = io.BytesIO(json_data)
+    pythondata = JSONParser().parse(stream)
+    serializer = ComplaintsSerializer(data=pythondata)
+    print(serializer.initial_data)
+    print(serializer.is_valid())
+    if serializer.is_valid():
+      serializer.save()
+      print("yesssss")
+      return Response({'message': 'Complaint Created', 'status': '200'})
+    else:
+      print(serializer.errors)
+      return Response(serializer.errors)
+
+@api_view(['GET', 'POST'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def Maintenances(request):
+  # authentication_classes = (TokenAuthentication,)
+  # permission_classes = (IsAuthenticated,)
+  if request.method == 'GET':
+    data = request.data
+    name = data.get('name')
+    if name is not None:
+      maintenance = Maintenance.objects.filter(name=data.name)
+      serializer = MaintenanceSerializer(maintenance, many=True)
+      return Response(serializer.data)
+    maintenance = Maintenance.objects.all()
+    serializer = MaintenanceSerializer(maintenance, many=True)
+    return Response(serializer.data)
+  if request.method == 'POST':
+    json_data = request.body;
+    stream = io.BytesIO(json_data)
+    pythondata = JSONParser().parse(stream)
+    serializer = MaintenanceSerializer(data=pythondata)
+    print(serializer.initial_data)
+    print(serializer.is_valid())
+    if serializer.is_valid():
+      serializer.save()
+      print("yesssss")
+      return Response({'message': 'Maintenance Created', 'status': '200'})
+    else:
+      print(serializer.errors)
+      return Response(serializer.errors)
+

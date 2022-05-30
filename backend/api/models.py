@@ -21,3 +21,14 @@ class Announcements(models.Model):
 class Queries(models.Model):
     email = models.CharField(max_length=100)
     query = models.CharField(max_length=100)
+
+class Complaints(models.Model):
+    flat = models.CharField(max_length=100)
+    comp = models.CharField(max_length=100)
+
+class Maintenance(models.Model):
+    flat = models.CharField(max_length=100)
+    cheque = models.CharField(max_length=100)
+    amount = models.CharField(max_length=100)
+    date = models.DateField(auto_now_add=True)
+    ack = models.BooleanField(default=False)
