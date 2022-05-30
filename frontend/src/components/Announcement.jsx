@@ -54,10 +54,6 @@ export default function Announcement() {
       }
      }
      getAnnouncements()
-    // axios.get("http://127.0.0.1:8000/announce/", {headers}).then((res) => {
-    //   console.log(res.data);
-
-    // });
   }, []);
   return (
     <Container>
