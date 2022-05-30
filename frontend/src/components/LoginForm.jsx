@@ -39,11 +39,6 @@ const gotodashboard = () => {
       }
      }
      userRequest()
-    //  console.log(token);
-    //  if(token === ""){
-    //    handleClose();
-    //    gotodashboard();
-    //  }
   }
 
   return (
@@ -59,7 +54,7 @@ const gotodashboard = () => {
         <Modal.Body>
           <Form>
             <div className="container">
-              <div className="wrapper">
+              <div className="wrapper1">
                 <div className="title">
                   <span>Login Form</span>
                 </div>
@@ -72,9 +67,6 @@ const gotodashboard = () => {
                     <i className="fas fa-lock"></i>
                     <input type="password" placeholder="Password" id="pass" required />
                   </div>
-                  {/* <div className="pass">
-                    <a href="#">Forgot password?</a>
-                  </div> */}
                   <div className="row button">
                     <button type="submit" onClick={handleSubmit}>Submit</button>
                   </div>
