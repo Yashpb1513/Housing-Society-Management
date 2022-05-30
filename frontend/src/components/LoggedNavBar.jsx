@@ -1,7 +1,16 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { AppBar, Grid, Typography, Toolbar, Button, MenuItem, Avatar, Menu } from '@mui/material';
-import { UserContext } from '../context/UserContext';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  AppBar,
+  Grid,
+  Typography,
+  Toolbar,
+  Button,
+  MenuItem,
+  Avatar,
+  Menu,
+} from "@mui/material";
+import { UserContext } from "../context/UserContext";
 function LoggedNavBar() {
   const { logout, getUserStatus } = React.useContext(UserContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -12,58 +21,65 @@ function LoggedNavBar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  let name = localStorage.getItem('user');
+  let name = localStorage.getItem("user");
   const navigate = useNavigate();
   return (
     <AppBar
-        position="fixed"
-        sx={{
-          zIndex: (theme) => theme.zIndex.drawer + 1,
-          backgroundColor: "black",
-        }}
-      >
-        <Toolbar>
-          <Grid
-            container
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            <Grid item>
-              <Typography variant="h6">ABC</Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="h6">Welcome Username!</Typography>
-            </Grid>
-            <Grid item>
-              <Button
-                id="basic-button"
-                aria-controls={open ? "basic-menu" : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? "true" : undefined}
-                onClick={handleClick}
-                sx={{ backgroundColor: "transparent", color: "black" }}
-              >
-                <Avatar>{name}</Avatar>
-              </Button>
-              <Menu
-                id="basic-menu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{
-                  "aria-labelledby": "basic-button",
+      position="fixed"
+      sx={{
+        zIndex: (theme) => theme.zIndex.drawer + 1,
+        backgroundColor: "black",
+      }}
+    >
+      <Toolbar>
+        <Grid
+          container
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <Grid item>
+            <Typography variant="h6">ABC</Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="h6">Welcome {name}!</Typography>
+          </Grid>
+          <Grid item>
+            <Button
+              id="basic-button"
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClick}
+              sx={{ backgroundColor: "transparent", color: "black" }}
+            >
+              <Avatar>{name}</Avatar>
+            </Button>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+            >
+              <MenuItem onClick={handleClose}>Profile</MenuItem>
+              <MenuItem
+                onClick={() => {
+                  logout();
+                  console.log(getUserStatus());
+                  navigate("/");
                 }}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={() => {logout();console.log(getUserStatus());navigate("/");}}>Logout</MenuItem>
-              </Menu>
-            </Grid>
+                Logout
+              </MenuItem>
+            </Menu>
           </Grid>
-        </Toolbar>
-      </AppBar>
-  )
+        </Grid>
+      </Toolbar>
+    </AppBar>
+  );
 }
 
-export default LoggedNavBar
+export default LoggedNavBar;
