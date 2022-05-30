@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 import Mainform from "./Mainform";
 import { Grid } from "@mui/material";
 import { UserContext } from "../context/UserContext";
 import axios from "axios";
 import Maincard from "./Maincard";
 import Bounce from "react-reveal/Bounce";
-function Maintenance() {
+function AdminMaintain() {
   const { getUserName, getToken } = React.useContext(UserContext);
   const [log, setLog] = React.useState([]);
   const token = getToken();
@@ -33,21 +33,8 @@ function Maintenance() {
 
     // });
   }, []);
-  console.log(user);
   return (
     <Grid
-      container
-      direction="column"
-      justifyContent="center"
-      alignItems="center"
-      spacing={3}
-    >
-      <Grid item xs={12} sm={6} lg={6} md={6}>
-        <Mainform />
-      </Grid>
-      <h4 style={{ textAlign: "center" }}>Maintenance Yet:</h4>
-      <Grid item xs={12} sm={6} lg={9} md={7}>
-        <Grid
           container
           direction="row"
           justifyContent="center"
@@ -57,7 +44,7 @@ function Maintenance() {
           {log.map((log) => {
             return (
               <Grid item>
-                <Bounce top duration={3000}>
+                <Bounce top duration={2000}>
                   <Maincard
                     key={log.id}
                     flat={log.flat}
@@ -71,9 +58,7 @@ function Maintenance() {
             );
           })}
         </Grid>
-      </Grid>
-    </Grid>
-  );
+  )
 }
 
-export default Maintenance;
+export default AdminMaintain

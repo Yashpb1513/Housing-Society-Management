@@ -17,7 +17,7 @@ import LoggedNavBar from "./LoggedNavBar";
 import { UserContext } from "../context/UserContext";
 import useEffect from "react";
 import Complaint from "./Complaint";
-
+import AdminMaintain from "./AdminMaintain";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
   return (
@@ -77,7 +77,7 @@ export default function Admin() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        Item One
+        <AdminMaintain />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <Queries />

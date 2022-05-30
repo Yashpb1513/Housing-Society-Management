@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import { UserContext } from '../context/UserContext'
+import Slide from 'react-reveal/Slide'
+
 export default function Mainform() {
   const { getToken } = React.useContext(UserContext)
   const token = getToken()
@@ -26,6 +28,7 @@ export default function Mainform() {
     postQuery();
   }
   return (
+    <Slide right duration={2000}>
     <div style={{textAlign: 'center'}}>
         <form  style={{padding: "10 px", backgroundColor: "#f8f8f8", margin: "10px",width: "400px" }}>
   <div style={{padding: "18 px" , margin: "10px",width: "auto", backgroundColor: "#f8f8f8",borderRadius:"10px"}} class="form-group">
@@ -44,5 +47,6 @@ export default function Mainform() {
   </form>
       
     </div>
+    </Slide>
   )
 }

@@ -73,7 +73,7 @@ export default function Residant() {
         >
           <Tab label="Maintenance Log" {...a11yProps(0)} />
           <Tab label="Raise a Complain" {...a11yProps(1)} />
-          <Tab label="Funds" {...a11yProps(2)} />
+          <Tab label="General Contacts" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -83,7 +83,7 @@ export default function Residant() {
         <Complainform />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        rtv
+        General
       </TabPanel>
     </Box>
   );

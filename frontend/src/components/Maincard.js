@@ -1,7 +1,8 @@
 import React from 'react'
-
+import Bounce from 'react-reveal/Bounce'
 export default function Maincard({flat, cheque, amount, ack, date}) {
   return (
+    // <Bounce top duration={3000}>
     <div>
       <div class="card" style={{width: '18rem',backgroundColor: "#f8f8f8"}}>
     <div class="card-body">
@@ -14,5 +15,6 @@ export default function Maincard({flat, cheque, amount, ack, date}) {
   </div>
 </div>
     </div>
+    // </Bounce>
   )
 }
