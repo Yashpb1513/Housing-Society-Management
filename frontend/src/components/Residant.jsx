@@ -64,7 +64,7 @@ export default function Residant() {
   // },[])
   return (
     <Box sx={{ width: "100%" }}>
-      <LoggedNavBar name={getUserName}/>
+      <LoggedNavBar name={getUserName} />
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}

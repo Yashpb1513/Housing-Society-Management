@@ -8,7 +8,7 @@ function Maintenance() {
   const { getUserName, getToken } = React.useContext(UserContext);
   const [log, setLog] = React.useState([]);
   const token = getToken();
-  const [user,setUser] = React.useState(getUserName());
+  const [user, setUser] = React.useState(getUserName());
   React.useEffect(() => {
     setUser(localStorage.getItem("user"));
     async function getPrev() {
@@ -32,7 +32,7 @@ function Maintenance() {
 
     // });
   }, []);
-  console.log(user)
+  console.log(user);
   return (
     <Grid
       container
@@ -44,7 +44,7 @@ function Maintenance() {
       <Grid item xs={12} sm={6} lg={6} md={6}>
         <Mainform />
       </Grid>
-      <h4 style={{textAlign: "center"}}>Maintenance Yet:</h4>
+      <h4 style={{ textAlign: "center" }}>Maintenance Yet:</h4>
       <Grid item xs={12} sm={6} lg={9} md={7}>
         <Grid
           container
