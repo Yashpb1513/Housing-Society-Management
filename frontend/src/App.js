@@ -7,10 +7,22 @@ import ReachUs from "./components/ReachUs";
 import Dashboard from "./components/Dashboard";
 import Protected from "./components/Protected";
 import Announcement from "./components/Announcement";
+import { UserProvider } from "./context/UserContext";
+import {UserContext} from "./context/UserContext";
+import { useContext, useEffect } from "react";
+import LoggedNavBar from "./components/LoggedNavBar";
 function App() {
+  const { getUserStatus, getUserName } = useContext(UserContext);
+  const [status, setStatus] = React.useState(false);
+  const [name, setName] = React.useState(false);
+  useEffect(() => {
+    setStatus(getUserStatus());
+    setName(getUserName());
+  },[]);
+  console.log(getUserStatus());
   return (
     <div>
-      <NavBar />
+      {status ? <LoggedNavBar name={name}/> : <NavBar />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/Announcement" element={<Announcement />} />
@@ -18,9 +30,9 @@ function App() {
         <Route
           path="/dashboard"
           element={
-            <Protected isLoggedIn={true}>
+            // <Protected isLoggedIn={status}>
               <Dashboard />
-            </Protected>
+            // </Protected>
           }
         />
       </Routes>

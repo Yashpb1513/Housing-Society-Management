@@ -3,6 +3,7 @@ from django.conf import settings
 import io
 from rest_framework.parsers import JSONParser
 from django.db.models.signals import post_save
+from django.contrib.auth import authenticate
 from django.views.decorators.csrf import csrf_exempt
 from django.dispatch import receiver
 from matplotlib.font_manager import json_load
@@ -90,19 +91,27 @@ def query(request):
       return Response(serializer.errors)
 
 @api_view(['GET', 'POST'])
-def getUser(request):
+def getToken(request):
   if request.method == 'POST':
     data = request.data
-    serializer = UserSerializer(data=data)
-    if serializer.is_valid():
-      serializer.save()
-      # print(serializer.data)
-      # return Response(serializer.data)
-      user = User.objects.get(username=data.get('name'))
-      if user is None:
-        return Response({'message': 'Invalid Credentials', 'status': '404'})
-      else:
+    name = data.get('name')
+    password = data.get('password')
+    if User.objects.filter(username=name).exists():
+      user = authenticate(request, username=name, password=password)
+      if user is not None:
         token = Token.objects.get(user=user)
-        return Response({'token': token.key, 'status': '200'}, status=HTTP_400_BAD_REQUEST)
+        type = Usr.objects.get(name=name).type
+        subtype = Usr.objects.get(name=name).subtype
+        return Response({'token': token.key, 'type': type, 'subtype': subtype, 'name': name})
+      else:
+        return Response({'message': 'Invalid Credentials', 'status': '400'}, status=HTTP_400_BAD_REQUEST)
     else:
-      return Response(serializer.errors)
+      return Response({'message': 'User does not exist', 'status': '400'}, status=HTTP_400_BAD_REQUEST)
+      # user = User.objects.get(username=data.get('name'))
+    #   if user is None:
+    #     return Response({'message': 'Invalid Credentials', 'status': '404'})
+    #   else:
+    #     token = Token.objects.get(user=user)
+    #     return Response({'token': token.key, 'status': '200'}, status=HTTP_400_BAD_REQUEST)
+    # else:
+    # return Response({'message': 'Invalid Credentials', 'status': '404'})
