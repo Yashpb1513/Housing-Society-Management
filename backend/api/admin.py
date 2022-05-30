@@ -4,7 +4,7 @@ from .models import Usr, Announcements, Queries
 # Register your models here.
 @admin.register(Usr)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'email', 'password')
+    list_display = ('id', 'name', 'email', 'password', 'type', 'subtype')
 
 @admin.register(Announcements)
 class AnnouncementAdmin(admin.ModelAdmin):
@@ -13,4 +13,3 @@ class AnnouncementAdmin(admin.ModelAdmin):
 @admin.register(Queries)
 class QueriesAdmin(admin.ModelAdmin):
     list_display = ('id', 'email', 'query')
-    

@@ -6,6 +6,8 @@ class Usr(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     password = models.CharField(max_length=100)
+    type = models.CharField(max_length=100)
+    subtype = models.CharField(max_length=100, default="none")
 
 class Announcements(models.Model):
     header = models.CharField(max_length=100)

@@ -4,7 +4,7 @@ from .models import Usr, Announcements, Queries
 class UserSerializer(serializers.ModelSerializer):
   class Meta:
     model = Usr
-    fields = ('name', 'email', 'password')
+    fields = ('name', 'email', 'password', 'type', 'subtype')
 
 class AnnouncementSerializer(serializers.ModelSerializer):
   class Meta:
