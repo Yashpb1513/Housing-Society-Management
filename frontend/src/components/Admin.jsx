@@ -13,10 +13,12 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Queries from "./Queries";
 import { useNavigate } from "react-router-dom";
+import LoggedNavBar from "./LoggedNavBar";
+import { UserContext } from "../context/UserContext";
+import useEffect from "react";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
   return (
     <div
       role="tabpanel"
@@ -47,71 +49,21 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs() {
+export default function Admin() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const navigate = useNavigate();
+  const { getUserName } = React.useContext(UserContext);
+  const [name, setName] = React.useState("");
+  // useEffect(() => {
+  //   const res = getUserName();
+  //   setName(res);
+  // },[])
   return (
     <Box sx={{ width: "100%" }}>
-      <AppBar
-        position="fixed"
-        sx={{
-          zIndex: (theme) => theme.zIndex.drawer + 1,
-          backgroundColor: "black",
-        }}
-      >
-        <Toolbar>
-          <Grid
-            container
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            <Grid item>
-              <Typography variant="h6">ABC</Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="h6">Welcome Username!</Typography>
-            </Grid>
-            <Grid item>
-              <Button
-                id="basic-button"
-                aria-controls={open ? "basic-menu" : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? "true" : undefined}
-                onClick={handleClick}
-                sx={{ backgroundColor: "transparent", color: "white" }}
-              >
-                <Avatar>H</Avatar>
-              </Button>
-              <Menu
-                id="basic-menu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{
-                  "aria-labelledby": "basic-button",
-                }}
-              >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={() => {navigate("/")}}>Logout</MenuItem>
-              </Menu>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
+      <LoggedNavBar name={() => getUserName()}/>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
