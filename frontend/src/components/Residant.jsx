@@ -16,7 +16,8 @@ import { useNavigate } from "react-router-dom";
 import LoggedNavBar from "./LoggedNavBar";
 import { UserContext } from "../context/UserContext";
 import useEffect from "react";
-
+import Maintenance from "./Maintenance";
+import Complainform from "./Complainform";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -57,14 +58,13 @@ export default function Residant() {
     setValue(newValue);
   };
   const { getUserName } = React.useContext(UserContext);
-  const [name, setName] = React.useState("");
   // useEffect(() => {
   //   const res = getUserName();
   //   setName(res);
   // },[])
   return (
     <Box sx={{ width: "100%" }}>
-      <LoggedNavBar name={() => getUserName()}/>
+      <LoggedNavBar name={getUserName}/>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
@@ -74,20 +74,16 @@ export default function Residant() {
           <Tab label="Maintenance Log" {...a11yProps(0)} />
           <Tab label="Raise a Complain" {...a11yProps(1)} />
           <Tab label="Funds" {...a11yProps(2)} />
-          <Tab label="General Contacts" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        Item One
+        <Maintenance />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Queries />
+        <Complainform />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        Item 4
+        rtv
       </TabPanel>
     </Box>
   );

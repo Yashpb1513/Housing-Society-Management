@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 import LoggedNavBar from "./LoggedNavBar";
 import { UserContext } from "../context/UserContext";
 import useEffect from "react";
+import Complaint from "./Complaint";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -72,7 +73,7 @@ export default function Admin() {
         >
           <Tab label="Maintenance" {...a11yProps(0)} />
           <Tab label="Queries" {...a11yProps(1)} />
-          <Tab label="Funds" {...a11yProps(2)} />
+          <Tab label="Complaints" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -82,7 +83,7 @@ export default function Admin() {
         <Queries />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <Complaint />
       </TabPanel>
     </Box>
   );
