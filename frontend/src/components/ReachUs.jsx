@@ -125,7 +125,7 @@ export class ReachUs extends Component {
         >
           <div>
             <h6>
-              <small>Lucky Tower Co-operative Housing Society</small>
+              <small>ABC Tower Co-operative Housing Society</small>
             </h6>
             <p>
               6R4V+P64, opp. Kamla Nagar, Amrut Nagar, Patel Nagar, Kandivali
@@ -152,7 +152,7 @@ export class ReachUs extends Component {
           <Grid item className="whiteAdjust">
             <h2>Society Office: </h2>
             <p>
-              B-Wing 1<sup>st</sup> Floor, Lucky Tower.
+              B-Wing 1<sup>st</sup> Floor, ABC Tower.
             </p>
             <p className="anchoradjust">
               <GiRotaryPhone style={{ fontSize: "30px", marginRight: "5px" }} />
