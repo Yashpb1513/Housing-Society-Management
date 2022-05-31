@@ -150,9 +150,12 @@ def Maintenances(request):
   # permission_classes = (IsAuthenticated,)
   if request.method == 'GET':
     data = request.data
+    print(data)
     name = data.get('name')
     if name is not None:
+      print(name)
       maintenance = Maintenance.objects.filter(name=data.name)
+      print(maintenance)
       serializer = MaintenanceSerializer(maintenance, many=True)
       return Response(serializer.data)
     maintenance = Maintenance.objects.all()
