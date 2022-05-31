@@ -18,6 +18,7 @@ import { UserContext } from "../context/UserContext";
 import useEffect from "react";
 import Maintenance from "./Maintenance";
 import Complainform from "./Complainform";
+import GeneralContacts from "./GeneralContacts";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -83,7 +84,7 @@ export default function Residant() {
         <Complainform />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        General
+        <GeneralContacts />
       </TabPanel>
     </Box>
   );
