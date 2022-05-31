@@ -18,6 +18,7 @@ import { UserContext } from "../context/UserContext";
 import useEffect from "react";
 import Complaint from "./Complaint";
 import AdminMaintain from "./AdminMaintain";
+import AdminAnnounce from "./AdminAnnounce";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
   return (
@@ -74,6 +75,7 @@ export default function Admin() {
           <Tab label="Maintenance" {...a11yProps(0)} />
           <Tab label="Queries" {...a11yProps(1)} />
           <Tab label="Complaints" {...a11yProps(2)} />
+          <Tab label="Announcements" {...a11yProps(3)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -84,6 +86,9 @@ export default function Admin() {
       </TabPanel>
       <TabPanel value={value} index={2}>
         <Complaint />
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <AdminAnnounce />
       </TabPanel>
     </Box>
   );

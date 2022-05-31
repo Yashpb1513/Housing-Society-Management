@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 import React from 'react'
 import axios from 'axios'
 import { UserContext } from '../context/UserContext'
 import Slide from 'react-reveal/Slide'
 
-=======
-import React from "react";
-import axios from "axios";
-import { UserContext } from "../context/UserContext";
->>>>>>> a92aa6554f74f714cf5c80dbba7a1d35db410523
 export default function Mainform() {
   const { getToken } = React.useContext(UserContext);
   const token = getToken();
@@ -50,7 +44,7 @@ export default function Mainform() {
         <div
           style={{
             padding: "18 px",
-            margin: "10px",
+            margin: "30px",
             width: "auto",
             backgroundColor: "#f8f8f8",
             borderRadius: "10px",
@@ -108,7 +102,7 @@ export default function Mainform() {
           style={{
             padding: "18 px",
             margin: "30px",
-            width: "50%",
+            width: "auto",
             boxSizing: "border-box",
           }}
           type="submit"
