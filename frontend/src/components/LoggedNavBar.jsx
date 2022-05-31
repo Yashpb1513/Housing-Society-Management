@@ -67,7 +67,7 @@ function LoggedNavBar() {
               <MenuItem
                 onClick={() => {
                   handleClose()
-                  navigate("/dashboard/Profile");
+                  // navigate("/dashboard/Profile");
                 }}
               >
                 Profile
