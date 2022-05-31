@@ -14,13 +14,10 @@ function Maintenance() {
     setUser(localStorage.getItem("user"));
     async function getPrev() {
       try {
-        const ann = await axios.get(
-          "http://127.0.0.1:8000/maint/",
-          {
-            name: user,
-            headers: { Authorization: `Token ${token}` },
-          },
-        );
+        const ann = await axios.get("http://127.0.0.1:8000/maint/", {
+          name: user,
+          headers: { Authorization: `Token ${token}` },
+        });
         console.log(ann.data);
         setLog(...log, ann.data);
       } catch (error) {
@@ -45,7 +42,7 @@ function Maintenance() {
       <Grid item xs={12} sm={6} lg={6} md={6}>
         <Mainform />
       </Grid>
-      <h4 style={{ textAlign: "center" }}>Maintenance Yet:</h4>
+      <h4 style={{ textAlign: "center" }}>Maintenance Log:</h4>
       <Grid item xs={12} sm={6} lg={9} md={7}>
         <Grid
           container
