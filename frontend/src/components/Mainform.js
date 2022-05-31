@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 import React from 'react'
 import axios from 'axios'
 import { UserContext } from '../context/UserContext'
 import Slide from 'react-reveal/Slide'
 
-=======
-import React from "react";
-import axios from "axios";
-import { UserContext } from "../context/UserContext";
->>>>>>> a92aa6554f74f714cf5c80dbba7a1d35db410523
 export default function Mainform() {
   const { getToken } = React.useContext(UserContext);
   const token = getToken();
