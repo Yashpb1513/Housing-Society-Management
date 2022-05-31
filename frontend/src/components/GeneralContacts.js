@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
-
+import Flash from "react-reveal/Flash"
 const cardInfo = [
   {
     image: "electrical",
@@ -45,44 +45,46 @@ function GeneralContacts() {
       <Row xs={1} md={4} className="g-4 ">
         {cardInfo.map((card) => (
           <Col>
-            <Card
-              className="h-100"
-              bg="light"
-              text="dark"
-              style={{
-                border: "solid",
-                margin: "2% 3%",
-                padding: "20px",
-              }}
-            >
-              <Card.Img
-                variant="top"
-                src={require(`../images/${card.image}.jpg`)}
-                alt={card.alt}
+            <Flash duration={2000}>
+              <Card
+                className="h-100"
+                bg="light"
+                text="dark"
                 style={{
-                  border: "dashed",
-                  padding: "5px",
-                  width: "100%",
-                  height: "10rem",
-                  margin: "0 auto",
+                  border: "solid",
+                  margin: "2% 3%",
+                  padding: "20px",
                 }}
-              />
-              <Card.Body>
-                <Card.Header
+              >
+                <Card.Img
+                  variant="top"
+                  src={require(`../images/${card.image}.jpg`)}
+                  alt={card.alt}
                   style={{
-                    backgroundColor: "darkblue",
-                    color: "whitesmoke",
-                    textAlign: "center",
-                    marginBottom: "3px",
+                    border: "dashed",
+                    padding: "5px",
+                    width: "100%",
+                    height: "10rem",
+                    margin: "0 auto",
                   }}
-                >
-                  {card.header}
-                </Card.Header>
-                <Card.Text>{card.desc}</Card.Text>
-                <Card.Text>{card.time}</Card.Text>
-                <Card.Link href={card.mob}>Contact : {card.mob1}</Card.Link>
-              </Card.Body>
-            </Card>
+                />
+                <Card.Body>
+                  <Card.Header
+                    style={{
+                      backgroundColor: "darkblue",
+                      color: "whitesmoke",
+                      textAlign: "center",
+                      marginBottom: "3px",
+                    }}
+                  >
+                    {card.header}
+                  </Card.Header>
+                  <Card.Text>{card.desc}</Card.Text>
+                  <Card.Text>{card.time}</Card.Text>
+                  <Card.Link href={card.mob}>Contact : {card.mob1}</Card.Link>
+                </Card.Body>
+              </Card>
+            </Flash>
           </Col>
         ))}
       </Row>

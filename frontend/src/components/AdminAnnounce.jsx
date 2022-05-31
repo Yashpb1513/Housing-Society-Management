@@ -10,15 +10,21 @@ export default function AdminAnnounce() {
     e.preventDefault();
     const hd = document.getElementById("header").value;
     const desc = document.getElementById("desc").value;
+    const date = document.getElementById("date").value;
     const time = document.getElementById("time").value;
     const im = document.getElementById("img").value;
     async function postQuery() {
       try {
         await axios
-          .post(
-            "http://127.0.0.1:8000/announce",
-            { header: hd, desc: desc, time: time, image: im, alt: im, disabled: true },
-          )
+          .post("http://127.0.0.1:8000/announce/", {
+            header: hd,
+            desc: desc,
+            date: date,
+            time: time,
+            image: im,
+            alt: im,
+            disabled: true,
+          })
           .then((res) => {
             console.log(res.data);
             alert("Announcement submitted successfully");
@@ -30,7 +36,7 @@ export default function AdminAnnounce() {
     postQuery();
   };
   return (
-    <Grid container direction="row" justifyContent="center" alignItems="center" >
+    <Grid container direction="row" justifyContent="center" alignItems="center">
       <Grid item>
         <Slide left duration={2000}>
           <div style={{ textAlign: "center" }}>
@@ -45,7 +51,7 @@ export default function AdminAnnounce() {
               <div
                 style={{
                   padding: "18 px",
-                  margin: "10px",
+                  margin: "30px",
                   width: "auto",
                   backgroundColor: "#f8f8f8",
                   borderRadius: "10px",
@@ -90,7 +96,26 @@ export default function AdminAnnounce() {
                 }}
                 class="form-group"
               >
-              <label for="comp">Time</label>
+                <label for="comp">Date</label>
+                <br />
+                <input
+                  type="date"
+                  class="form-control"
+                  id="date"
+                  placeholder="Date"
+                />
+              </div>
+              <div
+                style={{
+                  padding: "18 px",
+                  margin: "30px",
+                  width: "auto",
+                  boxSizing: "border-box",
+                  backgroundColor: "#f8f8f8",
+                }}
+                class="form-group"
+              >
+                <label for="comp">Time</label>
                 <br />
                 <input
                   type="text"
@@ -109,13 +134,9 @@ export default function AdminAnnounce() {
                 }}
                 class="form-group"
               >
-              <label for="comp">Image describe: </label>
+                <label for="comp">Image describe: </label>
                 <br />
-                <input
-                  type="text"
-                  class="form-control"
-                  id="img"
-                />
+                <input type="text" class="form-control" id="img" />
               </div>
               <button
                 style={{

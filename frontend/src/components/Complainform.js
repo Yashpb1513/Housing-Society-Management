@@ -46,7 +46,7 @@ export default function Complainform() {
               <div
                 style={{
                   padding: "18 px",
-                  margin: "10px",
+                  margin: "30px",
                   width: "auto",
                   backgroundColor: "#f8f8f8",
                   borderRadius: "10px",
