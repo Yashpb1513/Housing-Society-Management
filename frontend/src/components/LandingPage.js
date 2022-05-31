@@ -230,7 +230,7 @@ function LandingPage() {
                     <p className="card-text">Pleasant regards from my mise</p>
                   </Slide>
                   <Slide right>
-                    <p className="card-text" style={{ marginBottom: "5px" }}>
+                    <p className="card-text" style={{ marginBottom: "px" }}>
                       I heartily welcome you all!
                     </p>
                   </Slide>
