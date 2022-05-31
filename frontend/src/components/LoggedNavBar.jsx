@@ -64,14 +64,14 @@ function LoggedNavBar() {
                 "aria-labelledby": "basic-button",
               }}
             >
-              <MenuItem
+              {/* <MenuItem
                 onClick={() => {
                   handleClose()
                   // navigate("/dashboard/Profile");
                 }}
               >
                 Profile
-              </MenuItem>
+              </MenuItem> */}
               <MenuItem
                 onClick={() => {
                   logout();
