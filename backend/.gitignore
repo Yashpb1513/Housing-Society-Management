@@ -1,6 +1,6 @@
 #Pycache
 **/.pyc
-*__pycache__/
+__pycache__/
 
 # Vscode
 .code
